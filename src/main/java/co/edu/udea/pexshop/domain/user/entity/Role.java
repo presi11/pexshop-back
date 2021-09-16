@@ -21,10 +21,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
-    private List<Permission> permissions;
 
-//    @OneToMany
-//    private List<User> users;
+    @OneToMany(mappedBy = "role")
+    private List<PermisionRole> permisionRoleList;
 
 }

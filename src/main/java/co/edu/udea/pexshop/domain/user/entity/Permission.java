@@ -1,6 +1,7 @@
 package co.edu.udea.pexshop.domain.user.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_permission")
@@ -13,5 +14,8 @@ public class Permission {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "permission")
+    private List<PermisionRole> permisionRoleList;
 
 }
