@@ -16,6 +16,6 @@ public class Permission {
     private String description;
 
     @OneToMany(mappedBy = "permission")
-    private List<PermisionRole> permisionRoleList;
+    private List<PermissionRole> permisionRoleList;
 
 }
