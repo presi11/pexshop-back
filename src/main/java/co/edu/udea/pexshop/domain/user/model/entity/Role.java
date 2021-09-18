@@ -23,6 +23,6 @@ public class Role {
 
 
     @OneToMany(mappedBy = "role")
-    private List<PermisionRole> permisionRoleList;
+    private List<PermissionRole> permisionRoleList;
 
 }

@@ -1,0 +1,11 @@
+package co.edu.udea.pexshop.domain.commons.controller;
+
+import org.hibernate.mapping.Any;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+
+import java.util.logging.Logger;
+
+public class BaseController {
+
+}
