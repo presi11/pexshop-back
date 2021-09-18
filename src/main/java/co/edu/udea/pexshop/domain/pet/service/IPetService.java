@@ -1,7 +1,7 @@
 package co.edu.udea.pexshop.domain.pet.service;
 
 import co.edu.udea.pexshop.domain.pet.model.entity.Pet;
-import co.edu.udea.pexshop.domain.user.entity.User;
+import co.edu.udea.pexshop.domain.user.model.entity.User;
 
 import java.util.List;
 

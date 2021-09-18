@@ -9,3 +9,7 @@ insert into tbl_user(id, username, email, password, role_id) values(1, 'chorro',
 insert into tbl_race values (1, 'Chiwawa'),
                             (2, 'Pastor Berga'),
                             (3, 'Lobo toelhijueputa');
+
+insert into tbl_pet values (1, 1, 1, 2, 2),
+                            (2, 1, 1, 2, 2),
+                            (3, 1, 1, 2, 2);

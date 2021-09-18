@@ -1,6 +1,6 @@
 package co.edu.udea.pexshop.domain.pet.model.entity;
 
-import co.edu.udea.pexshop.domain.user.entity.User;
+import co.edu.udea.pexshop.domain.user.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

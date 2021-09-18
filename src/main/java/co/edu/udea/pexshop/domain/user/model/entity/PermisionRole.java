@@ -1,4 +1,4 @@
-package co.edu.udea.pexshop.domain.user.entity;
+package co.edu.udea.pexshop.domain.user.model.entity;
 
 import javax.persistence.*;
 
