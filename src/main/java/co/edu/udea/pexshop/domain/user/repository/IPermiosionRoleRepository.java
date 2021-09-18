@@ -1,6 +1,7 @@
 package co.edu.udea.pexshop.domain.user.repository;
 
-import co.edu.udea.pexshop.domain.user.entity.PermissionRole;
+
+import co.edu.udea.pexshop.domain.user.model.entity.PermissionRole;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
