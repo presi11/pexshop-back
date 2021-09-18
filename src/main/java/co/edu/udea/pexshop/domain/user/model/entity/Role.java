@@ -1,4 +1,4 @@
-package co.edu.udea.pexshop.domain.user.entity;
+package co.edu.udea.pexshop.domain.user.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +23,6 @@ public class Role {
 
 
     @OneToMany(mappedBy = "role")
-    private List<PermisionRole> permisionRoleList;
+    private List<PermissionRole> permisionRoleList;
 
 }

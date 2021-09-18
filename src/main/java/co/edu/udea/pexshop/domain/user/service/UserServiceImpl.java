@@ -1,6 +1,6 @@
 package co.edu.udea.pexshop.domain.user.service;
 
-import co.edu.udea.pexshop.domain.user.entity.User;
+import co.edu.udea.pexshop.domain.user.model.entity.User;
 import co.edu.udea.pexshop.domain.user.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

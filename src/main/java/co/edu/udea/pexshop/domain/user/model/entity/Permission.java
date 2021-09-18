@@ -1,4 +1,4 @@
-package co.edu.udea.pexshop.domain.user.entity;
+package co.edu.udea.pexshop.domain.user.model.entity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,6 +16,6 @@ public class Permission {
     private String description;
 
     @OneToMany(mappedBy = "permission")
-    private List<PermisionRole> permisionRoleList;
+    private List<PermissionRole> permisionRoleList;
 
 }
