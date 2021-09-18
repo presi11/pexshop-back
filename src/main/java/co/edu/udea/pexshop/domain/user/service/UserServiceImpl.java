@@ -1,5 +1,6 @@
 package co.edu.udea.pexshop.domain.user.service;
 
+import co.edu.udea.pexshop.domain.user.model.dto.UserResponseDTO;
 import co.edu.udea.pexshop.domain.user.model.entity.User;
 import co.edu.udea.pexshop.domain.user.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public User findByUsername(String username) {
-        return iUserRepository.findByUsername(username);
+    public UserResponseDTO findByUsername(String username) {
+        return null;
     }
 }
