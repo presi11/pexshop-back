@@ -16,16 +16,18 @@ spring:
   # DB
   # ===============================
   datasource:
-    url: jdbc:mysql://pfl7zhx51fxgmkts:a8gtacpzp4ar3c9o@nnsgluut5mye50or.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hlxgi2ic0kpo0mow
+    url: jdbc:mysql://backdbguarderia.mysql.database.azure.com:3306/guarderia?useSSL=TRUE&requireSSL=FALSE&serverTimezone=UTC
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: pfl7zhx51fxgmkts
-    password: a8gtacpzp4ar3c9o
+    username: Admindb@backdbguarderia
+    password: pija_123
 
   # ===============================
   # JPA / HIBERNATE
   # ===============================
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
