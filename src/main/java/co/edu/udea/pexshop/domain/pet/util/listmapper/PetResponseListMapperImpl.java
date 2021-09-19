@@ -15,6 +15,7 @@ public class PetResponseListMapperImpl implements IPetResponseListMapper {
     @Autowired
     private IPetResponseMapper iPetResponseMapper;
 
+    //Convert List
     @Override
     public List<PetResponseDTO> modelToDto(List<Pet> pets) {
         List<PetResponseDTO> petsResponseDTO = new ArrayList<>();
