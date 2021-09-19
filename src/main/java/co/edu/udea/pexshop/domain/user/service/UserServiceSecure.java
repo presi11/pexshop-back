@@ -91,6 +91,6 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
 
         List<GrantedAuthority> authorities = returnTokenToClient(userInsession);
 
-        return new org.springframework.security.core.userdetails.User(userInsession.getUsername(), "", authorities);
+        return new org.springframework.security.core.userdetails.User(userInsession.getUsername(), "$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG", authorities);
     }
 }
