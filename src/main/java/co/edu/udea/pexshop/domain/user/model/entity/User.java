@@ -1,4 +1,4 @@
-package co.edu.udea.pexshop.domain.user.entity;
+package co.edu.udea.pexshop.domain.user.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +26,12 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "authentication_type")
+    private String authenticationType;
+
+    @Column(name = "log_in_code")
+    private String logInCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")

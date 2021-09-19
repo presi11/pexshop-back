@@ -1,10 +1,13 @@
-package co.edu.udea.pexshop.domain.user.entity;
+package co.edu.udea.pexshop.domain.user.model.entity;
+
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 @Table(name = "tbl_permission_role")
-public class PermisionRole {
+public class PermissionRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
