@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class UserController {
 
