@@ -23,4 +23,5 @@ public class Race {
     @Column(name = "description")
     private String description;
 
+
 }

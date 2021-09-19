@@ -19,6 +19,9 @@ public class Pet {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
+    private String petName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "race_id")
     private Race race;
@@ -32,5 +35,11 @@ public class Pet {
 
     @Column(name = "age")
     private int age;
+
+    @Column(name = "vaccination_plan")
+    private String vaccinationPlan;
+
+    @Column(name = "care_to_have")
+    private String careToHave;
 
 }

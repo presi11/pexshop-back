@@ -19,7 +19,7 @@ public class UserRequestMapperImpl implements IUserRequestMapper {
         userRequestDTO.setId(user.getId());
         userRequestDTO.setUsername(user.getUsername());
         userRequestDTO.setEmail(user.getEmail());
-        userRequestDTO.setPassword(user.getPassword());
+        userRequestDTO.setPassword(null);       //PROVISIONAL PROVISIONAL PROVISIONAL PROVISIONAL
         userRequestDTO.setRole(user.getRole().getId());
         return userRequestDTO;
     }
