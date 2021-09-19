@@ -17,5 +17,8 @@ public class PetResponseDTO {
     private UserRequestDTO owner;
     private Double size;
     private int age;
+    private String vaccinationPlan;
+    private String careToHave;
+
 
 }

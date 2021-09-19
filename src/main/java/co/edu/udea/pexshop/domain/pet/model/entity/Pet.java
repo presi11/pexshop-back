@@ -36,4 +36,10 @@ public class Pet {
     @Column(name = "age")
     private int age;
 
+    @Column(name = "vaccination_plan")
+    private String vaccinationPlan;
+
+    @Column(name = "care_to_have")
+    private String careToHave;
+
 }

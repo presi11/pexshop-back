@@ -23,6 +23,8 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
         petResponseDTO.setOwner(iUserRequestMapper.modelToDto(pet.getOwner()));
         petResponseDTO.setSize(pet.getSize());
         petResponseDTO.setAge(pet.getAge());
+        petResponseDTO.setVaccinationPlan(pet.getVaccinationPlan());
+        petResponseDTO.setCareToHave(pet.getCareToHave());
         return petResponseDTO;
     }
 
@@ -35,6 +37,8 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
         pet.setOwner(iUserRequestMapper.dtoToModel(petResponseDTO.getOwner()));
         pet.setSize(petResponseDTO.getSize());
         pet.setAge(petResponseDTO.getAge());
+        pet.setVaccinationPlan(petResponseDTO.getVaccinationPlan());
+        pet.setVaccinationPlan(petResponseDTO.getVaccinationPlan());
         return pet;
     }
 }

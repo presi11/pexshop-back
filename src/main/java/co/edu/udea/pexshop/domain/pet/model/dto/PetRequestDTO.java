@@ -15,5 +15,8 @@ public class PetRequestDTO {
     private Long ownerId;
     private Double size;
     private int age;
+    private String vaccinationPlan;
+    private String careToHave;
+
 
 }

@@ -10,6 +10,6 @@ insert into tbl_race values (1, 'Chiwawa'),
                             (2, 'Pastor Berga'),
                             (3, 'Lobo toelhijueputa');
 
-insert into tbl_pet values (1, 1, 'roberto', 1, 2, 2),
-                            (2, 1, 'firulais',1, 2, 2),
-                            (3, 1, 'marujo', 1, 2, 2);
+insert into tbl_pet values (1, 1, 'bañar en azufre', 'roberto', 1, 'moderna', 2, 2),
+                            (2, 1, 'tirar en paracaidas', 'firulais',1, 'pfizer', 2, 2),
+                            (3, 1, 'calvear', 'marujo', 1, 'astrazeneca', 2, 2);

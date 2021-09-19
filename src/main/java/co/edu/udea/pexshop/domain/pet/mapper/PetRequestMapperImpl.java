@@ -24,6 +24,8 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
         petRequestDTO.setOwnerId(pet.getOwner().getId());
         petRequestDTO.setSize(pet.getSize());
         petRequestDTO.setAge(pet.getAge());
+        petRequestDTO.setVaccinationPlan(pet.getVaccinationPlan());
+        petRequestDTO.setCareToHave(pet.getCareToHave());
 
         return petRequestDTO;
 
@@ -38,6 +40,8 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
         pet.setOwner(iUserService.findById(petRequestDTO.getOwnerId()));
         pet.setSize(petRequestDTO.getSize());
         pet.setAge(petRequestDTO.getAge());
+        pet.setVaccinationPlan(petRequestDTO.getVaccinationPlan());
+        pet.setCareToHave(petRequestDTO.getCareToHave());
 
         return pet;
 
