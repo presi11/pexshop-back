@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class PetRequestDTO {
 
     private Long id;
+    private String petName;
     private Long raceId;
     private Long ownerId;
     private Double size;

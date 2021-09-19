@@ -19,6 +19,9 @@ public class Pet {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
+    private String petName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "race_id")
     private Race race;

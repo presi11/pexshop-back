@@ -18,6 +18,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
     public PetResponseDTO modelToDto(Pet pet) {
         PetResponseDTO petResponseDTO = new PetResponseDTO();
         petResponseDTO.setId(pet.getId());
+        petResponseDTO.setPetName(pet.getPetName());
         petResponseDTO.setRace(iRaceMapper.modelToDto(pet.getRace()));
         petResponseDTO.setOwner(iUserRequestMapper.modelToDto(pet.getOwner()));
         petResponseDTO.setSize(pet.getSize());
@@ -29,6 +30,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
     public Pet dtoToModel(PetResponseDTO petResponseDTO) {
         Pet pet = new Pet();
         pet.setId(petResponseDTO.getId());
+        pet.setPetName(petResponseDTO.getPetName());
         pet.setRace(iRaceMapper.dtoToModel(petResponseDTO.getRace()));
         pet.setOwner(iUserRequestMapper.dtoToModel(petResponseDTO.getOwner()));
         pet.setSize(petResponseDTO.getSize());

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class PetResponseDTO {
 
     private Long id;
+    private String petName;
     private RaceDTO race;
     private UserRequestDTO owner;
     private Double size;
