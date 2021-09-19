@@ -28,7 +28,7 @@ public class UserServiceImplementedSpec {
 
     @Test
     public void testPasswordEncorder() {
-        String password = "quevivanloshorro";
+        String password = "102598257692520619840";
         for(int i = 0; i < 4; i++){
             String passworBcrypted = bCryptPasswordEncoder.encode(password);
             System.out.println(passworBcrypted);
