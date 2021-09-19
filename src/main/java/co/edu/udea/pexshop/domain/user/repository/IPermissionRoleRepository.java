@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface IPermiosionRoleRepository extends CrudRepository<PermissionRole, Long> {
+public interface IPermissionRoleRepository extends CrudRepository<PermissionRole, Long> {
 
     @Query("SELECT pr  FROM PermissionRole pr where pr.role.id = ?1")
     public List<PermissionRole> findPermissionsByRole(String roleId);

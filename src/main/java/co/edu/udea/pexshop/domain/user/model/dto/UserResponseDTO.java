@@ -4,6 +4,7 @@ import co.edu.udea.pexshop.domain.user.model.entity.Permission;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.List;
 

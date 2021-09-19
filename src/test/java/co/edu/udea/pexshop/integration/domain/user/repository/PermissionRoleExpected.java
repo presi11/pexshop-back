@@ -3,7 +3,7 @@ package co.edu.udea.pexshop.integration.domain.user.repository;
 import co.edu.udea.pexshop.domain.user.model.entity.Permission;
 import co.edu.udea.pexshop.domain.user.model.entity.PermissionRole;
 import co.edu.udea.pexshop.domain.user.model.entity.Role;
-import co.edu.udea.pexshop.domain.user.repository.IPermiosionRoleRepository;
+import co.edu.udea.pexshop.domain.user.repository.IPermissionRoleRepository;
 import co.edu.udea.pexshop.domain.user.repository.IPermissionRepository;
 import co.edu.udea.pexshop.domain.user.repository.IRoleRepository;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PermissionRoleExpected {
 
     @Autowired
-    private IPermiosionRoleRepository permiosionRoleRepository;
+    private IPermissionRoleRepository permiosionRoleRepository;
 
     @Autowired
     private IPermissionRepository permissionRepository;
