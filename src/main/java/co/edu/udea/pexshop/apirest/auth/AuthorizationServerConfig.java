@@ -34,8 +34,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("pexshop-front")
-                .secret(passwordEncoder.encode("quevivanloshorro"))
+        clients.inMemory().withClient("pexshop-front") // TODO: Environment variable
+                .secret(passwordEncoder.encode("quevivanloshorro")) // TODO: Environment variable
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
                 .accessTokenValiditySeconds(3600)
@@ -56,6 +56,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter accessTokenverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+        jwtAccessTokenConverter.setSigningKey(JwtConfig.SECRET_ACCESS_KEY);
         return jwtAccessTokenConverter;
     }
 
