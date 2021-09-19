@@ -65,6 +65,7 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
             Long userRoleCode = user.getRole().getId();
             List<Permission> permissions = permissionsService.getPermisionsByRole(userRoleCode);
             userResponseDTO.setPermissions(permissions);
+            userResponseDTO.setAuthenticationCode(user.getLogInCode());
             return userResponseDTO;
         }catch (UnauthorizedClientException ex) {
             logger.info(String.format("user %s not found", username));
@@ -91,6 +92,6 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
 
         List<GrantedAuthority> authorities = returnTokenToClient(userInsession);
 
-        return new org.springframework.security.core.userdetails.User(userInsession.getUsername(), "$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG", authorities);
+        return new org.springframework.security.core.userdetails.User(userInsession.getUsername(), userInsession.getAuthenticationCode(), authorities);
     }
 }

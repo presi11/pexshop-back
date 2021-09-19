@@ -11,7 +11,7 @@ values (1, 'create pet'),
 
 
 insert into tbl_user(id, username, email, password, authentication_type, log_in_code, role_id)
-values (1, 'chorro', 'chorro@chorro.chorro', '$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG',  'google', '1xsd', 1),
+values (1, 'chorro', 'chorro@chorro.chorro', '$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG',  'google', '$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG', 1),
        (2, 'admin', 'principal@proof.co', '$2a$10$t7hLU7kK05YQVbFdxvZhQO0/r1GDxxfK1Wk3UsrmvPkmYwp7DoC9e','google', '2222sss', 2),
        (3, 'profe', 'proffesor@proof.co', '$2a$10$h/gDY6yO3kJWU1kYcjNSeOB7Ak0hB2Ed9eWmd8u/UIO4cLDw9jRtG', 'google', 'krypikrypikrypi', 3);
 

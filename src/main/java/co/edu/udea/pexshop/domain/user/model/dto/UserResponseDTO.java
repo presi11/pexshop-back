@@ -15,5 +15,6 @@ public class UserResponseDTO {
 
     String username;
     boolean isAcive;
+    String authenticationCode;
     List<Permission> permissions;
 }

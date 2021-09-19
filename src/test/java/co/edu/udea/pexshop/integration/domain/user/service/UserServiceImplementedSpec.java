@@ -1,8 +1,6 @@
 package co.edu.udea.pexshop.integration.domain.user.service;
 
 import co.edu.udea.pexshop.domain.user.model.dto.UserResponseDTO;
-import co.edu.udea.pexshop.domain.user.model.entity.Permission;
-import co.edu.udea.pexshop.domain.user.service.UserServiceImpl;
 import co.edu.udea.pexshop.domain.user.service.UserServiceSecure;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
