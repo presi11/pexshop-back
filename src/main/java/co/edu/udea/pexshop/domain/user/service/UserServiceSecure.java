@@ -73,6 +73,11 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
         }
     }
 
+    @Override
+    public User findUserByUsername(String username) {
+        return null;
+    }
+
     public List<GrantedAuthority> returnTokenToClient(UserResponseDTO userDto) {
         List<GrantedAuthority> authorities = userDto.getPermissions().stream().map(permission -> new SimpleGrantedAuthority(
                 permission.getId().toString() + " - " +permission.getDescription()

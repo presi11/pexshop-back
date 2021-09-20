@@ -37,4 +37,10 @@ public class UserServiceImpl implements IUserService{
 
         return null;
     }
+
+    @Override
+    public User findUserByUsername(String username) {
+        return iUserRepository.findByUsername(username).get();
+    }
+
 }
