@@ -2,7 +2,7 @@
 #COPY --chown=gradle:gradle . /home/gradle/src
 #WORKDIR /home/gradle/src
 
-#RUN gradle -Dskip.tests build
+#RUN gradle build
 
 #FROM adoptopenjdk:11-jdk-openj9
 
@@ -12,7 +12,10 @@
 
 #COPY --from=build /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
 
-#ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
+#ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar
+
+
+
 
 FROM adoptopenjdk/openjdk11:alpine-jre
 
@@ -29,3 +32,4 @@ COPY ${JAR_FILE} wms.jar
 EXPOSE 8091
 
 ENTRYPOINT ["java","-jar","/wms.jar"]
+
