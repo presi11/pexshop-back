@@ -17,12 +17,17 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
     @Override
     public PetResponseDTO modelToDto(Pet pet) {
         PetResponseDTO petResponseDTO = new PetResponseDTO();
-        if (pet.getId() != null){
-            petResponseDTO.setId(pet.getId());
+        Long id = pet.getId();
+        if (id != null){
+            petResponseDTO.setId(id);
         }
         petResponseDTO.setPetName(pet.getPetName());
-        petResponseDTO.setRace(iRaceMapper.modelToDto(pet.getRace()));
-        petResponseDTO.setOwner(iUserRequestMapper.modelToDto(pet.getOwner()));
+        if (pet.getRace().getId() != null){
+            petResponseDTO.setRace(iRaceMapper.modelToDto(pet.getRace()));
+        }
+        if (pet.getOwner().getId() != null){
+            petResponseDTO.setOwner(iUserRequestMapper.modelToDto(pet.getOwner()));
+        }
         petResponseDTO.setSize(pet.getSize());
         petResponseDTO.setAge(pet.getAge());
         petResponseDTO.setVaccinationPlan(pet.getVaccinationPlan());
@@ -37,8 +42,12 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
             pet.setId(petResponseDTO.getId());
         }
         pet.setPetName(petResponseDTO.getPetName());
-        pet.setRace(iRaceMapper.dtoToModel(petResponseDTO.getRace()));
-        pet.setOwner(iUserRequestMapper.dtoToModel(petResponseDTO.getOwner()));
+        if (petResponseDTO.getRace().getId() != null) {
+            pet.setRace(iRaceMapper.dtoToModel(petResponseDTO.getRace()));
+        }
+        if (petResponseDTO.getOwner().getId() != null){
+            pet.setOwner(iUserRequestMapper.dtoToModel(petResponseDTO.getOwner()));
+        }
         pet.setSize(petResponseDTO.getSize());
         pet.setAge(petResponseDTO.getAge());
         pet.setVaccinationPlan(petResponseDTO.getVaccinationPlan());
