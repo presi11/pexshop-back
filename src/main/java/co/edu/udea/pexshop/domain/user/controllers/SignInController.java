@@ -2,8 +2,10 @@ package co.edu.udea.pexshop.domain.user.controllers;
 
 import co.edu.udea.pexshop.domain.user.model.dto.RegisterUserDTO;
 import co.edu.udea.pexshop.domain.user.model.dto.UserResponseDTO;
+import co.edu.udea.pexshop.domain.user.service.IUserService;
 import co.edu.udea.pexshop.domain.user.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
