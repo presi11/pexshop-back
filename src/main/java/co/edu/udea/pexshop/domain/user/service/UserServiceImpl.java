@@ -53,12 +53,14 @@ public class UserServiceImpl implements IUserService{
     public UserResponseDTO createUserDTO(RegisterUserDTO registerUserDTO) throws Exception {
         List<User> expectedNullUser = listByUsername(registerUserDTO.getUserName());
         if(expectedNullUser.size() != 0 || registerUserDTO.getUserName().equals("") || registerUserDTO.getUserName().equals("")) {
-            throw new Exception("no");
+            throw new Exception("User can not be created");
         }
         User newUser = new User();
         newUser.setUsername(registerUserDTO.getUserName());
         newUser.setPassword(passwordEncoder.encode(registerUserDTO.getPassword()));
-        newUser.setEmail(registerUserDTO.getEmail());
+        newUser.setEmail(registerUserDTO.getUserName());
+        newUser.setAuthenticationType("google");
+        newUser.setLogInCode(passwordEncoder.encode(registerUserDTO.getPassword()));
         Role ownerRole = repository.getById(1L);
         newUser.setRole(ownerRole);
         iUserRepository.save(newUser);
