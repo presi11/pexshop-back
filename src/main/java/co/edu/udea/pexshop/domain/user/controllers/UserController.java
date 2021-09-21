@@ -19,30 +19,15 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/v1/users/sign-in")
+@RequestMapping("/api")
 public class UserController {
 
     @Qualifier("userServiceImpl")
     @Autowired
     private IUserService iUserService;
 
-    @PostMapping
-    public ResponseEntity<?> register(@RequestBody RegisterUserDTO registerUserDTO) {
-        UserResponseDTO userResponseDTO = null;
-        Map<String, Object> response = new HashMap<>();
 
-        try{
-            userResponseDTO = userService.createUserDTO(registerUserDTO);
-            return new ResponseEntity<UserResponseDTO>(userResponseDTO, HttpStatus.CREATED);
-        }catch (Exception e) {
-            response.put("msj:", "Error registering user");
-            response.put("error: ", e.getMessage());
-            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-        }
-
-    }
-
-    @GetMapping(value = "/v1/user/{id}")
+    @GetMapping(value = "/v1/owner/{id}")
     public ResponseEntity<User> findUserById(@PathVariable("id") Long id){
         User user = iUserService.findById(id);
         if (user == null){
