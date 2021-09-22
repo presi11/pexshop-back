@@ -31,7 +31,7 @@ public class Pet {
     private User owner;
 
     @Column(name = "size")
-    private Double size;
+    private String size;
 
     @Column(name = "age")
     private int age;
@@ -40,6 +40,6 @@ public class Pet {
     private String vaccinationPlan;
 
     @Column(name = "care_to_have")
-    private String careToHave;
+    private int careToHave;
 
 }

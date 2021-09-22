@@ -15,10 +15,10 @@ public class PetResponseDTO {
     private String petName;
     private RaceDTO race;
     private UserRequestDTO owner;
-    private Double size;
+    private String size;
     private int age;
     private String vaccinationPlan;
-    private String careToHave;
+    private int careToHave;
 
 
 }

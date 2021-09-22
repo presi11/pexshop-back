@@ -42,4 +42,14 @@ public class PetController {
         return ResponseEntity.status(HttpStatus.OK).body(petResponseDTO);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PetResponseDTO> updatePet(@PathVariable("id") Long id, @RequestBody PetRequestDTO petRequestDTO ){
+        petRequestDTO.setId(id);
+        Pet pet= iPetService.updatePet(iPetRequestMapper.dtoToModel(petRequestDTO));
+        if (pet == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(iPetResponseMapper.modelToDto(pet));
+    }
+
 }
