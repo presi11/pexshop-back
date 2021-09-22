@@ -13,10 +13,10 @@ public class PetRequestDTO {
     private String petName;
     private Long raceId;
     private Long ownerId;
-    private Double size;
+    private String size;
     private int age;
     private String vaccinationPlan;
-    private String careToHave;
+    private int careToHave;
 
 
 }

@@ -13,5 +13,6 @@ public interface IPetService {
     Pet findByOwner(User user);
     Pet create(Pet pet);
     Pet deleteById(Long id);
+    Pet updatePet(Pet pet);
 
 }
