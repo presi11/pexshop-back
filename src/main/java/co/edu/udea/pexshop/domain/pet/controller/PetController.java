@@ -67,4 +67,14 @@ public class PetController {
         return ResponseEntity.ok(iPetResponseMapper.modelToDto(pet));
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<PetResponseDTO> deleteById(@PathVariable("id") Long id){
+        Pet pet = iPetService.deleteById(id);
+        if (pet == null){
+            return ResponseEntity.notFound().build();
+        }
+        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        return ResponseEntity.ok(petResponseDTO);
+    }
+
 }
