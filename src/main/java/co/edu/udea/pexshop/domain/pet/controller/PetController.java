@@ -7,7 +7,9 @@ import co.edu.udea.pexshop.domain.pet.model.dto.PetResponseDTO;
 import co.edu.udea.pexshop.domain.pet.model.entity.Pet;
 import co.edu.udea.pexshop.domain.pet.service.IPetService;
 import co.edu.udea.pexshop.domain.pet.util.listmapper.IPetResponseListMapper;
+import co.edu.udea.pexshop.domain.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +29,23 @@ public class PetController {
     private IPetRequestMapper iPetRequestMapper;
     @Autowired
     private IPetResponseMapper iPetResponseMapper;
+    @Qualifier("userServiceImpl")
+    @Autowired
+    private IUserService iUserService;
 
     @GetMapping
     public ResponseEntity<List<PetResponseDTO>> listAll(){
         List<Pet> pets = iPetService.findAll();
+        List<PetResponseDTO> petsResponseDTO = iPetResponseListMapper.modelToDto(pets);
+        return ResponseEntity.ok(petsResponseDTO);
+    }
+
+    @GetMapping(value = "/owner/{username}")
+    public ResponseEntity<List<PetResponseDTO>> listByOwnerUsername(@PathVariable("username") String username){
+        List<Pet> pets = iPetService.findAllByOwner(iUserService.findUserByUsername(username));
+        if (pets.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
         List<PetResponseDTO> petsResponseDTO = iPetResponseListMapper.modelToDto(pets);
         return ResponseEntity.ok(petsResponseDTO);
     }

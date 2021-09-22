@@ -50,6 +50,13 @@ public class UserServiceImpl implements IUserService{
         return null;
     }
 
+
+    @Override
+    public User findUserByUsername(String username) {
+        return iUserRepository.findByUsername(username).get();
+    }
+
+
     public UserResponseDTO createUserDTO(RegisterUserDTO registerUserDTO) throws Exception {
         List<User> expectedNullUser = listByUsername(registerUserDTO.getUserName());
         if(expectedNullUser.size() != 0 || registerUserDTO.getUserName().equals("") || registerUserDTO.getUserName().equals("")) {
@@ -68,4 +75,5 @@ public class UserServiceImpl implements IUserService{
         userResponseDTO.setUsername(registerUserDTO.getUserName());
         return  userResponseDTO;
     }
+
 }
