@@ -49,4 +49,22 @@ public class IPetServiceImpl implements IPetService {
         iPetRepository.deleteById(id);
         return pet;
     }
+
+    @Override
+    public Pet updatePet(Pet pet) {
+        Pet petDB = findById(pet.getId());
+        if (petDB == null) {
+            return null;
+        }
+        petDB.setPetName(pet.getPetName());
+        petDB.setRace(pet.getRace());
+        petDB.setOwner(pet.getOwner());
+        petDB.setSize(pet.getSize());
+        petDB.setAge(pet.getAge());
+        petDB.setVaccinationPlan(pet.getVaccinationPlan());
+        petDB.setCareToHave(pet.getCareToHave());
+
+        return iPetRepository.save(petDB);
+
+    }
 }

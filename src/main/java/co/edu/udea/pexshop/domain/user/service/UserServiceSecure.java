@@ -55,9 +55,9 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
         try {
             User user = userRepository.findByUsername(username).get();
             if(user == null ){
-                logger.error(String.format("user $s not found", username));
-                throw new UsernameNotFoundException("Login Error: user or password invalid");
+                return null;
             }
+
             logger.info(String.format("User found: %s", user.getEmail()));
             UserResponseDTO userResponseDTO = new UserResponseDTO();
             userResponseDTO.setUsername(user.getUsername());
@@ -73,6 +73,11 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
         }
     }
 
+    @Override
+    public User findUserByUsername(String username) {
+        return null;
+    }
+
     public List<GrantedAuthority> returnTokenToClient(UserResponseDTO userDto) {
         List<GrantedAuthority> authorities = userDto.getPermissions().stream().map(permission -> new SimpleGrantedAuthority(
                 permission.getId().toString() + " - " +permission.getDescription()
@@ -84,14 +89,9 @@ public class UserServiceSecure implements IUserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserResponseDTO userInsession = findByUsername(username);
-
-        if(userInsession == null) {
-            logger.error("Error en el login: no existe el usuario '"+username+"' en el sistema!");
-            throw new UsernameNotFoundException("Error en el login: no existe el usuario '"+username+"' en el sistema!");
-        }
-
         List<GrantedAuthority> authorities = returnTokenToClient(userInsession);
 
         return new org.springframework.security.core.userdetails.User(userInsession.getUsername(), userInsession.getAuthenticationCode(), authorities);
     }
+
 }
