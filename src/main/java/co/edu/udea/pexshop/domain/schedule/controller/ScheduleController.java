@@ -6,6 +6,8 @@ import co.edu.udea.pexshop.domain.schedule.service.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,8 +18,9 @@ public class ScheduleController {
     @Autowired
     private IScheduleService scheduleService;
 
+    @PreAuthorize("hasAuthority('schedule_pet')")
     @PostMapping
-    public ResponseEntity<?> createPet(@RequestBody CreateScheduleDTO createScheduleDTO){
+    public ResponseEntity<?> createSchedule(@RequestBody CreateScheduleDTO createScheduleDTO){
 
         boolean scheduleResponse = scheduleService.createSchedule(createScheduleDTO);
         return ResponseEntity.status(HttpStatus.OK).body(scheduleResponse);
