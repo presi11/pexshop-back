@@ -36,6 +36,4 @@ public class LoungeEntity {
     @Column(name= "availability")
     private String availability;
 
-    @OneToMany(mappedBy = "lounge")
-    private List<ScheduleEntity> scheduleList;
 }

@@ -18,6 +18,7 @@ public class ScheduleController {
 
     @PostMapping
     public ResponseEntity<?> createPet(@RequestBody CreateScheduleDTO createScheduleDTO){
+
         boolean scheduleResponse = scheduleService.createSchedule(createScheduleDTO);
         return ResponseEntity.status(HttpStatus.OK).body(scheduleResponse);
     }
