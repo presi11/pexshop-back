@@ -33,6 +33,7 @@ public class LoungeEntity {
     @Column(name = "current_quantity")
     private int currentQuantity;
 
-    @OneToMany(mappedBy = "lounge")
-    private List<ScheduleEntity> scheduleList;
+    @Column(name= "availability")
+    private String availability;
+
 }

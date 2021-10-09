@@ -23,10 +23,19 @@ public class ScheduleEntity {
     private Long id;
 
     @Column(name = "schedule_date")
-    private Date description;
+    private Date scheduleDate;
 
     @Column(name = "status")
-    private int status;
+    private Boolean status;
+
+    @Column(name = "sun_day")
+    private Boolean sunDay;
+
+    @Column(name = "school")
+    private Boolean school;
+
+    @Column(name = "kindergarten")
+    private Boolean kindergarten;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lounge_id")
