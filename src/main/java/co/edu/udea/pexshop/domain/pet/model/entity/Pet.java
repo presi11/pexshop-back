@@ -1,11 +1,14 @@
 package co.edu.udea.pexshop.domain.pet.model.entity;
 
+import co.edu.udea.pexshop.domain.schedule.model.entity.ScheduleEntity;
+import co.edu.udea.pexshop.domain.user.model.entity.PermissionRole;
 import co.edu.udea.pexshop.domain.user.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor
@@ -41,5 +44,8 @@ public class Pet {
 
     @Column(name = "care_to_have")
     private int careToHave;
+
+    @OneToMany(mappedBy = "pet")
+    private List<ScheduleEntity> scheduleList;
 
 }
