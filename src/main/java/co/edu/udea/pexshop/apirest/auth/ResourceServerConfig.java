@@ -23,9 +23,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests().and().authorizeRequests().antMatchers(
+        http.antMatcher("/**").authorizeRequests().and().authorizeRequests()
+            .antMatchers(
                 "/api/v1/users/sign-in").permitAll()
-                .and() .authorizeRequests().antMatchers(HttpMethod.POST).permitAll().and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                .and().authorizeRequests().antMatchers(HttpMethod.POST).permitAll().and().authorizeRequests()
+            .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated().and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.headers().frameOptions().disable().and().cors().configurationSource(corsConfigurationSource());
