@@ -85,4 +85,9 @@ public class IPetServiceImpl implements IPetService {
         return iPetRepository.findAllByStatus(status);
 
     }
+
+    @Override
+    public Pet getPetByUserIdAndPetId(Long petId, Long userId) {
+        return null;
+    }
 }

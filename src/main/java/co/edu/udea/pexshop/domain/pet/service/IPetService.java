@@ -16,5 +16,5 @@ public interface IPetService {
     Pet updatePet(Pet pet);
     Pet acceptPet(Long id);
     List<Pet>findAllPendingPets(String status);
-
+    Pet getPetByUserIdAndPetId(Long petId, Long userId);
 }

@@ -106,8 +106,11 @@ public class PetController {
 
     @PreAuthorize("hasAuthority('delete_pet')")
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<PetResponseDTO> deleteById(@PathVariable("id") Long id){
-        Pet pet = iPetService.deleteById(id);
+    public ResponseEntity<PetResponseDTO> deleteById(@PathVariable("id") Long id,  @RequestHeader (name="Authorization") String token){
+
+        String userForPet = jwtUtils.getJWTUser(token);
+        User user = iUserService.findUserByUsername(userForPet);
+        Pet pet = iPetService.getPetByUserIdAndPetId(id, user.getId());
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
