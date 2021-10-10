@@ -1,0 +1,40 @@
+
+
+server:
+  port: 8091
+  error:
+    include-stacktrace: never #Evita que muestre el trace en el response
+
+# To See H2 Console in Browser:
+# http://localhost:8091/h2-console
+# Enabling H2 Console
+spring:
+  h2:
+    console:
+      enabled: true
+  # ===============================
+  # DB
+  # ===============================
+  datasource:
+    url: jdbc:mysql://nsgluut5mye50or.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/hlxgi2ic0kpo0mow
+    driverClassName: com.mysql.jdbc.Driver
+    username: pfl7zhx51fxgmkts
+    password: a8gtacpzp4ar3c9o
+
+  # ===============================
+  # JPA / HIBERNATE
+  # ===============================
+  jpa:
+    show-sql: true
+    generate-dll: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+    defer-datasource-initialization: true
+##logging:
+##  pattern:
+##    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
