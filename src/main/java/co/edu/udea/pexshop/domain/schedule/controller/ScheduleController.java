@@ -23,7 +23,12 @@ public class ScheduleController {
     public ResponseEntity<?> createSchedule(@RequestBody CreateScheduleDTO createScheduleDTO){
 
         boolean scheduleResponse = scheduleService.createSchedule(createScheduleDTO);
-        return ResponseEntity.status(HttpStatus.OK).body(scheduleResponse);
+        if(scheduleResponse) {
+            return ResponseEntity.status(HttpStatus.OK).body(true);
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(false);
+        }
+
     }
 
 }
