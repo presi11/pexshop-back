@@ -4,7 +4,7 @@ import co.edu.udea.pexshop.domain.pet.model.dto.PetRequestDTO;
 import co.edu.udea.pexshop.domain.pet.model.entity.Pet;
 import co.edu.udea.pexshop.domain.pet.service.IRaceService;
 import co.edu.udea.pexshop.domain.pet.service.RaceServiceImpl;
-import co.edu.udea.pexshop.domain.user.service.IUserService;
+import co.edu.udea.pexshop.domain.user.model.entity.User;
 import co.edu.udea.pexshop.domain.user.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,6 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
 
     @Autowired
     private RaceServiceImpl iRaceService;
-    @Autowired
-    private UserServiceImpl iUserService;
 
     @Override
     public PetRequestDTO modelToDto(Pet pet) {
@@ -36,7 +34,7 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
     }
 
     @Override
-    public Pet dtoToModel(PetRequestDTO petRequestDTO) {
+    public Pet dtoToModel(PetRequestDTO petRequestDTO, Long userId) {
         Pet pet = new Pet();
         if (petRequestDTO.getId() != null){
             pet.setId(petRequestDTO.getId());
@@ -45,7 +43,9 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
         System.out.println(petRequestDTO.getId());
         pet.setRace(iRaceService.findById(petRequestDTO.getRaceId()));
         System.out.println(pet.getRace());
-        pet.setOwner(iUserService.findById(petRequestDTO.getOwnerId()));
+        User user = new User();
+        user.setId(userId);
+        pet.setOwner(user);
         pet.setSize(petRequestDTO.getSize());
         pet.setAge(petRequestDTO.getAge());
         pet.setVaccinationPlan(petRequestDTO.getVaccinationPlan());
