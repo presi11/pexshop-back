@@ -45,8 +45,10 @@ public class Pet {
     @Column(name = "care_to_have")
     private String careToHave;
 
+
     @Column(name = "status")
     private String status;
+
 
     @OneToMany(mappedBy = "pet")
     private List<ScheduleEntity> scheduleList;
