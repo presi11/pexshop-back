@@ -37,7 +37,9 @@ public class IPetServiceImpl implements IPetService {
 
     @Override
     public Pet create(Pet pet) {
-        return iPetRepository.save(pet);
+        pet.setStatus("PENDING");
+        Pet petDB = iPetRepository.save(pet);
+        return petDB;
     }
 
     @Override
@@ -65,6 +67,22 @@ public class IPetServiceImpl implements IPetService {
         petDB.setCareToHave(pet.getCareToHave());
 
         return iPetRepository.save(petDB);
+
+    }
+
+    @Override
+    public Pet acceptPet(Long id) {
+        Pet pet = findById(id);
+        if (pet == null){
+            return null;
+        }
+        pet.setStatus("ACCEPTED");
+        return iPetRepository.save(pet);
+    }
+
+    @Override
+    public List<Pet> findAllPendingPets(String status) {
+        return iPetRepository.findAllByStatus(status);
 
     }
 }
