@@ -16,7 +16,7 @@ public class PetRequestDTO {
     private String size;
     private int age;
     private String vaccinationPlan;
-    private int careToHave;
+    private String careToHave;
 
 
 }

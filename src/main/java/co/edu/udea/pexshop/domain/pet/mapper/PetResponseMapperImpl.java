@@ -32,6 +32,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
         petResponseDTO.setAge(pet.getAge());
         petResponseDTO.setVaccinationPlan(pet.getVaccinationPlan());
         petResponseDTO.setCareToHave(pet.getCareToHave());
+        petResponseDTO.setStatus(pet.getStatus());
         return petResponseDTO;
     }
 
@@ -52,6 +53,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
         pet.setAge(petResponseDTO.getAge());
         pet.setVaccinationPlan(petResponseDTO.getVaccinationPlan());
         pet.setVaccinationPlan(petResponseDTO.getVaccinationPlan());
+        pet.setStatus(petResponseDTO.getStatus());
         return pet;
     }
 }

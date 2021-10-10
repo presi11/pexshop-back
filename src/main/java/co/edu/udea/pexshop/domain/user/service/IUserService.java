@@ -13,4 +13,5 @@ public interface IUserService {
     List<User> listByUsername(String username);
     UserResponseDTO findByUsername(String username);
     User findUserByUsername(String username);
+
 }
