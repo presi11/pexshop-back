@@ -53,8 +53,8 @@ public class IPetServiceImpl implements IPetService {
     }
 
     @Override
-    public Pet updatePet(Pet pet) {
-        Pet petDB = findById(pet.getId());
+    public Pet updatePet(Pet pet, Long userId) {
+        Pet petDB = iPetRepository.findPetByUserAndPetId(pet.getId(), userId);
         if (petDB == null) {
             return null;
         }

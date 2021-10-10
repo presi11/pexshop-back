@@ -97,7 +97,7 @@ public class PetController {
         petRequestDTO.setId(id);
         String userForPet = jwtUtils.getJWTUser(token);
         User user = iUserService.findUserByUsername(userForPet);
-        Pet pet= iPetService.updatePet(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()));
+        Pet pet= iPetService.updatePet(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()), user.getId());
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
