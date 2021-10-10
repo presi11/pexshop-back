@@ -21,7 +21,7 @@ public class PetResponseListMapperImpl implements IPetResponseListMapper {
         List<PetResponseDTO> petsResponseDTO = new ArrayList<>();
         for (Pet p : pets
         ) {
-            petsResponseDTO.add(iPetResponseMapper.modelToDto(p));
+            petsResponseDTO.add(iPetResponseMapper.petModelToDto(p));
         }
         return petsResponseDTO;
     }

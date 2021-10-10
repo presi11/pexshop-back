@@ -65,7 +65,7 @@ public class PetController {
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.ok(petResponseDTO);
     }
 
@@ -87,7 +87,7 @@ public class PetController {
         User user = iUserService.findUserByUsername(userForPet);
         Pet pet = iPetService.create(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()));
 
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.status(HttpStatus.OK).body(petResponseDTO);
     }
 
@@ -101,7 +101,7 @@ public class PetController {
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(iPetResponseMapper.modelToDto(pet));
+        return ResponseEntity.ok(iPetResponseMapper.petModelToDto(pet));
     }
 
     @PreAuthorize("hasAuthority('delete_pet')")
@@ -111,7 +111,7 @@ public class PetController {
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.ok(petResponseDTO);
     }
 

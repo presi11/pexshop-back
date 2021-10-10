@@ -15,7 +15,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
     private IUserRequestMapper iUserRequestMapper;
 
     @Override
-    public PetResponseDTO modelToDto(Pet pet) {
+    public PetResponseDTO petModelToDto(Pet pet) {
         PetResponseDTO petResponseDTO = new PetResponseDTO();
         Long id = pet.getId();
         if (id != null){
@@ -25,9 +25,7 @@ public class PetResponseMapperImpl implements IPetResponseMapper{
         if (pet.getRace().getId() != null){
             petResponseDTO.setRace(iRaceMapper.modelToDto(pet.getRace()));
         }
-        if (pet.getOwner().getId() != null){
-            petResponseDTO.setOwner(iUserRequestMapper.modelToDto(pet.getOwner()));
-        }
+
         petResponseDTO.setSize(pet.getSize());
         petResponseDTO.setAge(pet.getAge());
         petResponseDTO.setVaccinationPlan(pet.getVaccinationPlan());
