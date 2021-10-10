@@ -9,6 +9,8 @@ import co.edu.udea.pexshop.domain.user.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class PetRequestMapperImpl implements IPetRequestMapper {
 
@@ -23,7 +25,7 @@ public class PetRequestMapperImpl implements IPetRequestMapper {
         }
         petRequestDTO.setPetName(pet.getPetName());
         petRequestDTO.setRaceId(pet.getRace().getId());
-        petRequestDTO.setOwnerId(pet.getOwner().getId());
+        petRequestDTO.setOwnerId(Optional.ofNullable(pet.getOwner().getId()));
         petRequestDTO.setSize(pet.getSize());
         petRequestDTO.setAge(pet.getAge());
         petRequestDTO.setVaccinationPlan(pet.getVaccinationPlan());
