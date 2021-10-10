@@ -50,6 +50,26 @@ public class PetController {
         return ResponseEntity.ok(petsResponseDTO);
     }
 
+    @GetMapping(value = "/accept/{id}")
+    public ResponseEntity<PetResponseDTO> acceptPet(@PathVariable("id") Long id){
+        Pet pet = iPetService.acceptPet(id);
+        if (pet == null){
+            return ResponseEntity.notFound().build();
+        }
+        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        return ResponseEntity.ok(petResponseDTO);
+    }
+
+    @GetMapping(value = "/pending")
+    public ResponseEntity<List<PetResponseDTO>> listPetsByStatusPending(){
+        List<Pet> pets = iPetService.findAllPendingPets("PENDING");
+        if (pets.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
+        List<PetResponseDTO>petResponseDTOS = iPetResponseListMapper.modelToDto(pets);
+        return ResponseEntity.ok(petResponseDTOS);
+    }
+
     @PostMapping
     public ResponseEntity<PetResponseDTO> createPet(@RequestBody PetRequestDTO petRequestDTO){
         Pet pet = iPetService.create(iPetRequestMapper.dtoToModel(petRequestDTO));

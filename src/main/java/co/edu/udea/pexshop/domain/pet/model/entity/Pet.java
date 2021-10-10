@@ -43,7 +43,10 @@ public class Pet {
     private String vaccinationPlan;
 
     @Column(name = "care_to_have")
-    private int careToHave;
+    private String careToHave;
+
+    @Column(name = "status")
+    private String status;
 
     @OneToMany(mappedBy = "pet")
     private List<ScheduleEntity> scheduleList;

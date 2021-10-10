@@ -14,5 +14,7 @@ public interface IPetService {
     Pet create(Pet pet);
     Pet deleteById(Long id);
     Pet updatePet(Pet pet);
+    Pet acceptPet(Long id);
+    List<Pet>findAllPendingPets(String status);
 
 }
