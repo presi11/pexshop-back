@@ -7,6 +7,7 @@ import co.edu.udea.pexshop.domain.schedule.model.dto.ScheduleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,14 @@ public class LoungeController {
     @Autowired
     private IScheduleMapper scheduleMapper;
 
+    @PreAuthorize("hasAuthority('get_all_lounges')")
     @GetMapping
     public ResponseEntity<List<?>> listAll(){
         List<LoungeEntity> lounges = loungeService.findAll();
         return ResponseEntity.ok(lounges);
     }
 
-    // @PreAuthorize("hasAuthority('get_lounge_schedules')")
+    @PreAuthorize("hasAuthority('get_lounge_schedules')")
     @GetMapping("/schedule/{id}")
     public ResponseEntity<?> getLoungeSchedule(@PathVariable int id){
         List<ScheduleDTO> scheduleResponse = loungeService.listLoungeSchedulesById(id).stream()
