@@ -114,6 +114,7 @@ public class PetController {
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
+        iPetService.deleteById(id);
         PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.ok(petResponseDTO);
     }
