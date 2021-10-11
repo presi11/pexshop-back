@@ -88,6 +88,6 @@ public class IPetServiceImpl implements IPetService {
 
     @Override
     public Pet getPetByUserIdAndPetId(Long petId, Long userId) {
-        return null;
+        return iPetRepository.findPetByUserAndPetId(petId,userId);
     }
 }
