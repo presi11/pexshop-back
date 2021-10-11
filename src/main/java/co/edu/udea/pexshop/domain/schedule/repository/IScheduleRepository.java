@@ -13,4 +13,6 @@ public interface IScheduleRepository extends CrudRepository<ScheduleEntity, Long
     @Query("SELECT sch, pet FROM ScheduleEntity sch inner join Pet pet on pet.id=sch.pet.id where sch.lounge.id = ?1 and sch.status = true")
     List<ScheduleEntity> getSchedulesByLoungeId(Long id);
 
+    @Query("SELECT sch from ScheduleEntity sch where sch.status = true and sch.pet.id = ?1")
+    ScheduleEntity getScheduleByPetId(Long petId);
 }
