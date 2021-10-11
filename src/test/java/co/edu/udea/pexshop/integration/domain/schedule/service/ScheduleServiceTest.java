@@ -23,7 +23,7 @@ public class ScheduleServiceTest {
         createScheduleDTO.setLoungeId(1);
         createScheduleDTO.setKindergarten(true);
         createScheduleDTO.setSunDay(true);
-        createScheduleDTO.setPetId(8);
+        createScheduleDTO.setPetId(35);
        boolean response = scheduleService.createSchedule(createScheduleDTO);
         assertTrue(response);
     }

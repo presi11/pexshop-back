@@ -32,7 +32,7 @@ public class ScheduleServiceImpl implements IScheduleService {
         int capacity = loungeService.getCurrentCapacityOfLoungeByLoungeId(createScheduleDTO.getLoungeId());
         ScheduleEntity schPet = scheduleRepository.getScheduleByPetId(Long.valueOf(createScheduleDTO.getPetId()));
         Pet currentPet = petService.findById(Long.valueOf(createScheduleDTO.getPetId()));
-        if (capacity > 0 && schPet == null && currentPet != null) {
+        if (capacity > 0 && schPet == null && currentPet != null && currentPet.getStatus() != "PENDING") {
             Pet petAssigned = new Pet();
             LoungeEntity lounge = new LoungeEntity();
             ScheduleEntity schedule = new ScheduleEntity();
