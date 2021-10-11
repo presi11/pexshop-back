@@ -6,7 +6,7 @@ import co.edu.udea.pexshop.domain.pet.model.entity.Pet;
 
 public interface IPetResponseMapper {
 
-    PetResponseDTO modelToDto(Pet pet);
+    PetResponseDTO petModelToDto(Pet pet);
     Pet dtoToModel(PetResponseDTO petResponseDTO);
 
 }

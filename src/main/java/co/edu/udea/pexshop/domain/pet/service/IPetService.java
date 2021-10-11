@@ -13,8 +13,8 @@ public interface IPetService {
     Pet findByOwner(User user);
     Pet create(Pet pet);
     Pet deleteById(Long id);
-    Pet updatePet(Pet pet);
+    Pet updatePet(Pet pet, Long userId);
     Pet acceptPet(Long id);
     List<Pet>findAllPendingPets(String status);
-
+    Pet getPetByUserIdAndPetId(Long petId, Long userId);
 }

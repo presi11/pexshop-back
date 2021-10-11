@@ -65,7 +65,7 @@ public class PetController {
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.ok(petResponseDTO);
     }
 
@@ -87,7 +87,7 @@ public class PetController {
         User user = iUserService.findUserByUsername(userForPet);
         Pet pet = iPetService.create(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()));
 
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.status(HttpStatus.OK).body(petResponseDTO);
     }
 
@@ -97,21 +97,24 @@ public class PetController {
         petRequestDTO.setId(id);
         String userForPet = jwtUtils.getJWTUser(token);
         User user = iUserService.findUserByUsername(userForPet);
-        Pet pet= iPetService.updatePet(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()));
+        Pet pet= iPetService.updatePet(iPetRequestMapper.dtoToModel(petRequestDTO, user.getId()), user.getId());
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(iPetResponseMapper.modelToDto(pet));
+        return ResponseEntity.ok(iPetResponseMapper.petModelToDto(pet));
     }
 
     @PreAuthorize("hasAuthority('delete_pet')")
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<PetResponseDTO> deleteById(@PathVariable("id") Long id){
-        Pet pet = iPetService.deleteById(id);
+    public ResponseEntity<PetResponseDTO> deleteById(@PathVariable("id") Long id,  @RequestHeader (name="Authorization") String token){
+
+        String userForPet = jwtUtils.getJWTUser(token);
+        User user = iUserService.findUserByUsername(userForPet);
+        Pet pet = iPetService.getPetByUserIdAndPetId(id, user.getId());
         if (pet == null){
             return ResponseEntity.notFound().build();
         }
-        PetResponseDTO petResponseDTO = iPetResponseMapper.modelToDto(pet);
+        PetResponseDTO petResponseDTO = iPetResponseMapper.petModelToDto(pet);
         return ResponseEntity.ok(petResponseDTO);
     }
 
