@@ -3,6 +3,7 @@ package co.edu.udea.pexshop.domain.schedule.service;
 import co.edu.udea.pexshop.domain.lounge.model.entity.LoungeEntity;
 import co.edu.udea.pexshop.domain.lounge.service.ILoungeService;
 import co.edu.udea.pexshop.domain.pet.model.entity.Pet;
+import co.edu.udea.pexshop.domain.pet.service.IPetService;
 import co.edu.udea.pexshop.domain.schedule.model.dto.CreateScheduleDTO;
 import co.edu.udea.pexshop.domain.schedule.model.entity.ScheduleEntity;
 import co.edu.udea.pexshop.domain.schedule.repository.IScheduleRepository;
@@ -22,11 +23,16 @@ public class ScheduleServiceImpl implements IScheduleService {
     @Autowired
     private ILoungeService loungeService;
 
+    @Autowired
+    private IPetService petService;
+
     @Override
     public boolean createSchedule(CreateScheduleDTO createScheduleDTO) {
         // validate maximum capacity
         int capacity = loungeService.getCurrentCapacityOfLoungeByLoungeId(createScheduleDTO.getLoungeId());
-        if(capacity>0) {
+        ScheduleEntity schPet = scheduleRepository.getScheduleByPetId(Long.valueOf(createScheduleDTO.getPetId()));
+        Pet currentPet = petService.findById(Long.valueOf(createScheduleDTO.getPetId()));
+        if (capacity > 0 && schPet == null && currentPet != null && !currentPet.getStatus().equals("PENDING")) {
             Pet petAssigned = new Pet();
             LoungeEntity lounge = new LoungeEntity();
             ScheduleEntity schedule = new ScheduleEntity();
@@ -42,7 +48,7 @@ public class ScheduleServiceImpl implements IScheduleService {
             java.util.Date currentDate = new java.util.Date();
             schedule.setScheduleDate(new Date(currentDate.getTime()));
             scheduleRepository.save(schedule);
-            lounge.setCurrentQuantity(capacity -1);
+            lounge.setCurrentQuantity(capacity - 1);
             loungeService.updateCurrentLoungeCapacity(lounge);
             return true;
         }
